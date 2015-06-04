@@ -1,0 +1,37 @@
+/*Theme Name: Asha
+Description: A brief description of your theme
+Version: 1.0 or any other version you want
+Author: Your name or WordPress.org's username
+Author URI: Your web address
+Tags: Tags to locate your theme in the WordPress theme repository
+*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased; }
+
+body {
+  text-align: left;
+  font-size: 14px; }
+
+h1 {
+  font-size: 30px;
+  margin: 3px auto 15px; }
+
+h2 {
+  font-size: 22px;
+  margin: 5px auto 10px; }
+
+h3 {
+  font-size: 16px;
+  margin: 3px auto; }
+
+/*# sourceMappingURL=style.css.map */

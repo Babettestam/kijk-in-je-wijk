@@ -1,0 +1,21 @@
+/*Theme Name: Asha
+Description: A brief description of your theme
+Version: 1.0 or any other version you want
+Author: Your name or WordPress.org's username
+Author URI: Your web address
+Tags: Tags to locate your theme in the WordPress theme repository
+*/
+
+@import "fonts.scss";
+@import "variables.scss";
+@import "mixins.scss";
+
+@import "base.scss";
+
+@import "header.scss";
+
+@import "homepage.scss";
+
+@import "footer.scss";
+
+
