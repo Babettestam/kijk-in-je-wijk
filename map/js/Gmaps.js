@@ -18,7 +18,7 @@ getMeldingen();
 //haalt alle meldingen uit de file coords.php
 function getMeldingen() {
     $.getJSON(
-        "coords.php",
+        "http://lumini.ovh/school/kijkinjewijk/coords.php",
         getAllMeldingenCallBack
     );
 }//einde function getfotos
@@ -126,6 +126,7 @@ function createMarker(id,longitude,lattitude,titel,Text,Afbeelding,VideoUrl,type
         map:map,
 		title: titel,
 
+
     });
 
 
@@ -169,8 +170,11 @@ console.log("Nieuws Switch");
 
 
     google.maps.event.addListener(marker, 'click', function(){
+		map.setZoom(18);
+    map.setCenter(marker.getPosition());
         marker.info.open(map,marker);
-		console.log(marker);
+		
+		//console.log(marker);
     });//einde eventlistener
 
 
