@@ -1,4 +1,4 @@
-//global Map vars
+//global vars
 var map;
 var mapOptions = {
     zoom:8,
@@ -9,10 +9,13 @@ var mapOptions = {
 };//einde var mapoptions
 
 var marker;
+var NieuwsMarker = "http://lumini.ovh/school/kijkinjewijk/img/marker/RecordMarker.png";
+var VideoMarker  = "http://lumini.ovh/school/kijkinjewijk/img/marker/RecordYT.png";
+var MyPositionMarker = "http://lumini.ovh/school/kijkinjewijk/img/marker/CurrentPositionMarker.png";
 
 getMeldingen();
 
-//haalt alle foto's uit de file coords.php
+//haalt alle meldingen uit de file coords.php
 function getMeldingen() {
     $.getJSON(
         "coords.php",
@@ -84,7 +87,7 @@ function createPlace(data) {
     new google.maps.Marker({
         position:latLngPosition,
         title:'Mijn Locatie',
-		icon:  "http://lumini.ovh/school/kijkinjewijk/img/marker/CurrentPositionMarker.png",
+		icon:  MyPositionMarker,
 		
 		map:map
 		
@@ -107,13 +110,14 @@ function createMarker(id,longitude,lattitude,titel,Text,Afbeelding,VideoUrl,type
 
 	switch (type) {
     case 'Nieuws':
-        iconUrl = "http://lumini.ovh/school/kijkinjewijk/img/marker/RecordMarker.png";
+       // iconUrl = "http://lumini.ovh/school/kijkinjewijk/img/marker/RecordMarker.png";
+		iconUrl = NieuwsMarker;
         break;
     case 'NieuwsVideo':
-        iconUrl = "http://lumini.ovh/school/kijkinjewijk/img/marker/RecordYT.png";
+        iconUrl = VideoMarker;
         break;
     default:
-        iconUrl = 'http://lumini.ovh/school/kijkinjewijk/img/marker/RecordMarker.png' ;
+        iconUrl = NieuwsMarker;
     }
 
    var marker = new google.maps.Marker({
@@ -148,17 +152,17 @@ console.log("Nieuws Switch");
 		
 		}
 		else{
-		marker.info = new google.maps.InfoWindow({
-	content: '<h2>'+ titel +'</h2>'+' <p>'+ Text +'</p> <br /> '+ '<iframe width="560" height="315" src="'+ VideoUrl +'"" frameborder="0" allowfullscreen></iframe><br /><img src="http://lumini.ovh/school/kijkinjewijk/upload/'+ Afbeelding +'" alt="Nieuws plaatje"><br />'}); //einde marker info
+			marker.info = new google.maps.InfoWindow({
+			content: '<h2>'+ titel +'</h2>'+' <p>'+ Text +'</p> <br /> '+ '<iframe width="560" height="315" src="'+ VideoUrl +'"" frameborder="0" allowfullscreen></iframe><br /><img src="http://lumini.ovh/school/kijkinjewijk/upload/'+ Afbeelding +'" alt="Nieuws plaatje"><br />'}); //einde marker info
 	
-	}
+		}
 
         break;
     default:
-	console.log("Default Switch");
+		console.log("Default Switch");
         marker.info = new google.maps.InfoWindow({
-	//content: '<h2>'+ titel +'</h2>' + '<p>'+ VideoUrl  +'</p>' + '<audio controls><source src="sounds/'+ VideoUrl +'" type="audio/ogg"><source src="sounds/'+ VideoUrl +'" type="audio/mp3">Your browser does not support the audio element.</audio>'
-content: '<h2>'+ titel +'</h2>' + '<p>'+ VideoUrl  +'</p>'
+		//content: '<h2>'+ titel +'</h2>' + '<p>'+ VideoUrl  +'</p>' + '<audio controls><source src="sounds/'+ VideoUrl +'" type="audio/ogg"><source src="sounds/'+ VideoUrl +'" type="audio/mp3">Your browser does not support the audio element.</audio>'
+		content: '<h2>'+ titel +'</h2>' + '<p>'+ VideoUrl  +'</p>'
     }); //einde marker info
     }
 	
