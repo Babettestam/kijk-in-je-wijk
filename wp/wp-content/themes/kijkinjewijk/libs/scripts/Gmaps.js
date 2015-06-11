@@ -9,9 +9,9 @@ var mapOptions = {
 };//einde var mapoptions
 
 var marker;
-var NieuwsMarker = "http://lumini.ovh/school/kijkinjewijk/img/marker/RecordMarker.png";
-var VideoMarker  = "http://lumini.ovh/school/kijkinjewijk/img/marker/RecordYT.png";
-var MyPositionMarker = "http://lumini.ovh/school/kijkinjewijk/img/marker/CurrentPositionMarker.png";
+var NieuwsMarker = "img/marker/RecordMarker.png";
+var VideoMarker  = "img/marker/RecordYT.png";
+var MyPositionMarker = "img/marker/CurrentPositionMarker.png";
 
 getMeldingen();
 
