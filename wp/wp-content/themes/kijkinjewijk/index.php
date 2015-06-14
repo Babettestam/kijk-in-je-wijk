@@ -12,4 +12,12 @@ get_header(); ?>
   </div>
 </div>
 
+<?php 
+  include "getNews.php";
+?>
+
+<script type="text/javascript">
+  var jsonData = '<?php echo $json ?>';
+</script>
+
 <?php get_footer(); ?>
