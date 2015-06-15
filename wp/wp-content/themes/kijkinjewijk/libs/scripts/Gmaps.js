@@ -30,13 +30,14 @@ function getAllMeldingenCallBack(data) {
         var id = item.id;
         var longitude = item.longitude;
         var latitude = item.latitude;
-        var titel = item.title;
+        var title = item.title;
         var text = item.text;
-        var afbeelding = item.image;
-        var videoUrl = item.video;
-        var type = item.type;
-
-        createMarker(id,longitude,latitude,titel,text,afbeelding,videoUrl,type);
+        var image = item.image;
+        var video = item.video;
+        var category = item.category;
+        if(longitude != '' && latitude != ''){
+            createMarker(id,longitude,latitude,title,text,image,video,category);
+        }
     })   
 }
 
@@ -60,63 +61,68 @@ function createPlace(data) {
     focusToMarker(latLngPosition);
 }
 
-function createMarker(id,longitude,latitude,titel,Text,Afbeelding,VideoUrl,type) {
+function createMarker(id,longitude,latitude,title,text,image,video,category) {
     var latLngPosition = new google.maps.LatLng(latitude,longitude);
 
-
-    switch (type) {
-        case 'Nieuws':
+    switch (category) {
+        case '1': // Geen categorie
             iconUrl = NieuwsMarker;
             break;
-        case 'NieuwsVideo':
-            iconUrl = VideoMarker;
+        case '2': // Cultuur
+            iconUrl = NieuwsMarker;
+            break;
+        case '3': // Sport
+            iconUrl = NieuwsMarker;
+            break;
+        case '4': // Bouw
+            iconUrl = NieuwsMarker;
+            break;
+        case '5': // Veiligheid
+            iconUrl = NieuwsMarker;
             break;
         default:
             iconUrl = NieuwsMarker;
     }
 
    var marker = new google.maps.Marker({
-        position:latLngPosition,
-        icon:  iconUrl,
-        map:map,
-        title: titel,
+        position:   latLngPosition,
+        icon:       iconUrl,
+        map:        map,
+        title:      title,
     });
 
-   console.log(latLngPosition);
+    marker.info = new google.maps.InfoWindow({
+        content: '<h2>'+ title +'</h2>'+' <p>'+ text +'</p> <br /> '});
 
-
-    switch (type){
-        case 'Nieuws':
-            marker.info = new google.maps.InfoWindow({
-            content: '<h2>'+ titel +'</h2>'+' <p>'+ Text +'</p> <br /> '}); //einde marker info
-            break;
-        case 'NieuwsVideo':
-            if(VideoUrl == '') {
-                marker.info = new google.maps.InfoWindow({
-                    content: '<h2>'+ titel +'</h2>' + '<br />datum: '+date+'<br />Decibel: '+decibel
-                });
-            }
-            else{
-                marker.info = new google.maps.InfoWindow({
-                content: '<h2>'+ titel +'</h2>'+' <p>'+ Text +'</p> <br /> '+ '<iframe width="560" height="315" src="'+ VideoUrl +'"" frameborder="0" allowfullscreen></iframe><br /><img src="http://lumini.ovh/school/kijkinjewijk/upload/'+ Afbeelding +'" alt="Nieuws plaatje"><br />'}); //einde marker info
-            }
-            break;
-        default:
-            marker.info = new google.maps.InfoWindow({
-            content: '<h2>'+ titel +'</h2>' + '<p>'+ VideoUrl  +'</p>'
-        });
-    }
+    // switch (category){
+    //     case 'Nieuws':
+    //         break;
+    //     case 'NieuwsVideo':
+    //         if(VideoUrl == '') {
+    //             marker.info = new google.maps.InfoWindow({
+    //                 content: '<h2>'+ title +'</h2>' + '<br />datum: '+date+'<br />Decibel: '+decibel
+    //             });
+    //         }
+    //         else{
+    //             marker.info = new google.maps.InfoWindow({
+    //             content: '<h2>'+ title +'</h2>'+' <p>'+ Text +'</p> <br /> '+ '<iframe width="560" height="315" src="'+ video +'"" frameborder="0" allowfullscreen></iframe><br /><img src="http://lumini.ovh/school/kijkinjewijk/upload/'+ image +'" alt="Nieuws plaatje"><br />'});
+    //         }
+    //         break;
+    //     default:
+    //         marker.info = new google.maps.InfoWindow({
+    //         content: '<h2>'+ title +'</h2>' + '<p>'+ video  +'</p>'
+    //     });
+    // }
     
     google.maps.event.addListener(marker, 'click', function(){
-        map.setZoom(18);
-    map.setCenter(marker.getPosition());
+        map.setCenter(marker.getPosition());
         marker.info.open(map,marker);
     });
 }
 
 function focusToMarker(latLngPosition){
     map.setCenter(latLngPosition);
-    map.setZoom(17);
+    map.setZoom(14);
 }
 
 
