@@ -27,7 +27,6 @@
       'video' => 'null',
       'category' => $post->post_category
     );
-    // echo $text;
   }
   $json = json_encode( $output );
 ?>

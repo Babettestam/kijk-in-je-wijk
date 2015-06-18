@@ -6,6 +6,13 @@ var mapOptions = {
     center:new google.maps.LatLng(51.83313, 4.14330),
     mapTypeId:google.maps.MapTypeId.TERRAIN
 };
+var styles = [
+   {"stylers": [
+     { "saturation": -75 },
+     { "lightness": -5 },
+     { "gamma": 1.25 }
+     ]
+ }];
 
 var marker;
 
@@ -16,6 +23,7 @@ var MyPositionMarker = templateDir + "/libs/img/CurrentPositionMarker.png";
 
 function mapInit() {
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    map.setOptions({styles: styles});
     geoLocationAskPermission();
 
     // google.maps.event.addListener(marker, "mouseover", function() {

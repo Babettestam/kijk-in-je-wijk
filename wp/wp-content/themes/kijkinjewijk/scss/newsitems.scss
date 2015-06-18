@@ -1,0 +1,36 @@
+#news-wrapper {
+  width: 100%;
+  position: absolute;
+  top: 82px;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.content-area {
+  width: 100%;
+  position: absolute;
+  top: 82px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.news-items-wrapper {
+  width: 400px;
+  height: 100%;
+  background: #eeeeee;
+  pointer-events: all; 
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.categories {
+  width: 100%;
+  font-size: 0;
+}
+
+.category {
+  display: inline-block;
+  width: 20%;
+  font-size: $font-size-h3;
+}
