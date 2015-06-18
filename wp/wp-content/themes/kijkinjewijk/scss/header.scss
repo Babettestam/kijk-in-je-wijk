@@ -2,6 +2,161 @@
 // Header
 // ==========================================================================
 
+#top {
+    position: relative;
+    height: 50px;
+    background: #000;
+    border-bottom: 2px solid $green;
+}
+
+    .logo {
+        display: block;
+        float: left;
+        width: 170px;
+        height: 150px;
+        margin: -100px 0 0 10px;
+        background:
+            url(../libs/img/logo-restyle.png)
+            no-repeat
+            center bottom
+            #FFF;
+        background-size: 112px auto;
+    }
+
+    .svg .logo {
+        background:
+            url(../libs/img/logo-restyle.svg)
+            no-repeat
+            center bottom
+            #FFF;
+        background-size: 112px auto;
+    }
+
+    .socialMediaIcons {
+        position: absolute;
+        top: 40px;
+        right: 1%;
+    }
+    .twitterIcon {
+        display: block;
+        background: url("../images/socialmedia/twitter-restyle.png") no-repeat center center;
+        width: 32px;
+        height: 32px;
+        float: left;
+    }
+    .svg .twitterIcon {
+        background: url("../images/socialmedia/twitter-restyle.svg") no-repeat center center;
+    }
+
+    .instagramIcon {
+        display: block;
+        background: url("../images/socialmedia/instagram.png") no-repeat center center;
+        width: 32px;
+        height: 32px;
+        float: left;
+        margin: 0 0 0 10px;
+    }
+    .svg .instagramIcon {
+        background: url("../images/socialmedia/instagram.svg") no-repeat center center;
+    }
+    .facebookIcon {
+        display: block;
+        background: url("../images/socialmedia/facebook-restyle.png") no-repeat center center;
+        width: 32px;
+        height: 32px;
+        float: left;
+        margin: 0 0 0 10px;
+    }
+    .svg .facebookIcon {
+        background: url("../images/socialmedia/facebook-restyle.svg") no-repeat center center;
+    }
+    .youtubeIcon {
+        display: block;
+        background: url("../images/socialmedia/youtube-restyle.png") no-repeat center center;
+        width: 32px;
+        height: 32px;
+        float: left;
+        margin: 0 0 0 10px;
+    }
+    .svg .youtubeIcon {
+        background: url("../images/socialmedia/youtube-restyle.svg") no-repeat center center;
+    }
+
+    /* NAVIGATIE */
+    .btnMobileNavigatie {
+        display: none;
+    }
+
+    .navigatie {
+        float: left;
+        height: 28px;
+        padding: 0;
+        margin: 10px 0 0;
+        list-style: none;
+    }
+
+        .navigatie li {
+            float: left;
+            cursor: pointer;
+        }
+
+            .navigatie li a,
+            .navigatie li p {
+                display: block;
+                height: 28px;
+                padding: 0 10px;
+                margin: 0;
+                font-family: 'Droid Sans', sans-serif;
+                font-weight: 700;
+                font-size: 12px;
+                text-transform: uppercase;
+                line-height: 28px;
+                color: #fff;
+                border-left: solid 1px #fff;
+            }
+
+            .navigatie li:first-child a,
+            .navigatie li:first-child p {
+                border: none;
+            }
+
+            .navigatie li a:hover,
+            .navigatie li p:hover {
+                text-decoration: none;
+                color: $green;
+            }
+
+        /* NIVEAU 2 */
+        .navigatie ul {
+            position: absolute;
+            padding: 14px 0 0 0;
+            margin: 0;
+            list-style: none;
+            z-index: 10000;
+            display: none;
+        }
+
+            .navigatie ul li {
+                float: none;
+            }
+
+                .navigatie ul li a {
+                    display: block;
+                    font-size: 0.9em;
+                    font-weight: normal;
+                    background: #000000;
+                    border: 0;
+                    white-space: nowrap;
+                }
+
+                .navigatie ul li a:hover {
+                    text-decoration: none;
+                    background: #000000;
+                }
+
+    .mobileNavigatie {
+        display: none;
+    }
 
 
 
