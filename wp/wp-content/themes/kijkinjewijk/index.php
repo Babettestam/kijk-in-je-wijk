@@ -59,8 +59,8 @@ get_header(); ?>
           $longitude = '';
           $latitude = '';
 
-          $output = array();
           foreach( $posts as $post ) {
+
             $title = $post->post_title;
             $image = get_field('image');
             $text = $post->post_content;
