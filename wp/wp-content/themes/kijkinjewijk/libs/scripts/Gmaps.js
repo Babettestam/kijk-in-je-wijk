@@ -17,8 +17,12 @@ var styles = [
 var marker;
 
 var NieuwsMarker = templateDir + "/libs/img/RecordMarker.png";
-var VideoMarker  = templateDir + "/libs/img/RecordYT.png";
 var MyPositionMarker = templateDir + "/libs/img/CurrentPositionMarker.png";
+var iconBouw = templateDir + "/libs/img/bouw.png";
+var iconCultuur = templateDir + "/libs/img/cultuur.png";
+var iconCriminaliteit = templateDir + "/libs/img/criminaliteit.png";
+var iconOverig = templateDir + "/libs/img/overig.png";
+var iconSport = templateDir + "/libs/img/sport.png";
 
 
 function mapInit() {
@@ -72,29 +76,37 @@ function createPlace(data) {
 function createMarker(id,longitude,latitude,title,text,image,video,category) {
     var latLngPosition = new google.maps.LatLng(latitude,longitude);
 
-    switch (category) {
-        case '1': // Geen categorie
-            iconUrl = NieuwsMarker;
+    switch (category[0]) {
+        case 1: // Geen categorie
+            iconUrl = iconOverig;
             break;
-        case '2': // Cultuur
-            iconUrl = NieuwsMarker;
+        case 2: // Cultuur
+            iconUrl = iconCultuur;
             break;
-        case '3': // Sport
-            iconUrl = NieuwsMarker;
+        case 3: // Sport
+            iconUrl = iconSport;
             break;
-        case '4': // Bouw
-            iconUrl = NieuwsMarker;
+        case 4: // Bouw
+            iconUrl = iconBouw;
             break;
-        case '5': // Veiligheid
-            iconUrl = NieuwsMarker;
+        case 5: // Veiligheid
+            iconUrl = iconCriminaliteit;
             break;
         default:
-            iconUrl = NieuwsMarker;
+            iconUrl = iconOverig;
     }
+
+    var image = new google.maps.MarkerImage(
+        iconUrl,
+        null,
+        null,
+        null,
+        new google.maps.Size(35, 35)
+    );
 
    var marker = new google.maps.Marker({
         position:   latLngPosition,
-        icon:       iconUrl,
+        icon:       image,
         map:        map,
         title:      title,
     });

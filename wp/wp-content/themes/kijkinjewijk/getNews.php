@@ -1,14 +1,8 @@
 <?php
-  $args = array( 'posts_per_page' => 5  );
+  $args = array( 'posts_per_page' => 15 );
   $posts = get_posts();
   $longitude = '';
   $latitude = '';
-  // $longitude = get_field('locatie', $post->ID);
-  // $latitude = get_field('locatie', $post->ID)[lat];
-  // if(!empty(get_field('locatie', $post->ID) && get_field('locatie', $post->ID)[lat]) {
-  //   $longitude = get_field('locatie', $post->ID)[lng];
-  //   $latitude = get_field('locatie', $post->ID)[lat]
-  // }
 
   $output = array();
   foreach( $posts as $post ) {

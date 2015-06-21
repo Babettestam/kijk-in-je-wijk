@@ -1,7 +1,8 @@
 <html>
 <?php wp_head(); ?>
 <head>
-  <title>My Theme</title>
+  <title>Nieuws op de kaart</title>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/libs/fonts/fontello/css/fontello.css">
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory');?>/css/style.css">
 </head>

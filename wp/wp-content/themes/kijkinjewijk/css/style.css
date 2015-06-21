@@ -12,7 +12,6 @@ Tags: Tags to locate your theme in the WordPress theme repository
 
 html, body {
   width: 100%;
-  height: 100%;
   margin: 0;
   padding: 0;
   text-rendering: optimizeLegibility;
@@ -20,18 +19,20 @@ html, body {
 
 body {
   text-align: left;
-  font-size: 14px; }
+  font-family: "Droid Sans";
+  font-size: 14px;
+  color: #000; }
 
 h1 {
   font-size: 30px;
   margin: 3px auto 15px; }
 
 h2 {
-  font-size: 22px;
-  margin: 5px auto 10px; }
+  font-size: 15px;
+  margin: 5px auto 5px; }
 
 h3 {
-  font-size: 16px;
+  font-size: 15px;
   margin: 3px auto; }
 
 .container {
@@ -179,33 +180,52 @@ h3 {
 #news-wrapper {
   width: 100%;
   position: absolute;
-  top: 82px;
   bottom: 0;
   pointer-events: none; }
 
 .content-area {
   width: 100%;
   position: absolute;
-  top: 82px;
   left: 0;
   bottom: 0;
   right: 0; }
 
+.content-area,
+#news-wrapper {
+  top: 50px; }
+  .admin-bar .content-area, .admin-bar
+  #news-wrapper {
+    top: 82px; }
+
 .news-items-wrapper {
-  width: 400px;
+  width: 450px;
   height: 100%;
   background: #eeeeee;
   pointer-events: all;
-  padding-left: 10px;
-  padding-top: 10px; }
+  padding: 10px;
+  overflow: auto; }
 
 .categories {
   width: 100%;
-  font-size: 0; }
+  font-size: 0;
+  margin-bottom: 10px; }
 
 .category {
   display: inline-block;
-  width: 20%;
-  font-size: 16px; }
+  padding: 0 12px;
+  font-size: 15px;
+  text-align: left; }
+  .category a {
+    color: #000;
+    text-decoration: none; }
+    .category a.active {
+      border-bottom: 2px solid #50d488; }
+
+.news-item {
+  height: 130px; }
+  .news-item .text-wrapper {
+    padding: 10px; }
+  .news-item:nth-child(odd) {
+    background: #fff; }
 
 /*# sourceMappingURL=style.css.map */
