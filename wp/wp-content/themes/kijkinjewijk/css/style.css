@@ -213,7 +213,7 @@ h3 {
 
 .category {
   display: inline-block;
-  padding: 0 12px;
+  padding: 0 8px;
   font-size: 15px;
   text-align: left; }
   .category a {
@@ -221,6 +221,11 @@ h3 {
     text-decoration: none; }
     .category a.active {
       border-bottom: 2px solid #50d488; }
+  .category img {
+    width: 18px;
+    opacity: 0.5;
+    vertical-align: middle;
+    margin-bottom: 2px; }
 
 .news-item {
   height: 130px; }
