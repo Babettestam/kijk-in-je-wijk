@@ -17,66 +17,66 @@ get_header(); ?>
 ?>
 
 <div id="news-wrapper">
-  <div class="container">
-    <div class="news-items-wrapper">
-      <div class="categories">
+  <div class="news-items-wrapper">
+    <div class="categories">
+      <div class="category <?php $category->category_nicename ?>">
+      <a href="#" class="active">Headlines</a>
+      </div>
+      <?php
+      $args = array(
+        'type'                     => 'post',
+        'child_of'                 => 0,
+        'parent'                   => '',
+        'orderby'                  => 'id',
+        'order'                    => 'ASC',
+        'hide_empty'               => 0,
+        'hierarchical'             => 1,
+        'exclude'                  => '1',
+        'include'                  => '',
+        'number'                   => '',
+        'taxonomy'                 => 'category',
+        'pad_counts'               => false
+      );
+
+      $categories = get_categories( $args ); 
+
+      foreach ($categories as $category) {
+        ?>
         <div class="category <?php $category->category_nicename ?>">
-        <a href="#" class="active">Headlines</a>
+          <a href="#" data-category="<?php echo $category->cat_ID ?>"><?php echo $category->cat_name?></a>
         </div>
         <?php
-        $args = array(
-          'type'                     => 'post',
-          'child_of'                 => 0,
-          'parent'                   => '',
-          'orderby'                  => 'id',
-          'order'                    => 'ASC',
-          'hide_empty'               => 0,
-          'hierarchical'             => 1,
-          'exclude'                  => '1',
-          'include'                  => '',
-          'number'                   => '',
-          'taxonomy'                 => 'category',
-          'pad_counts'               => false
-        );
 
-        $categories = get_categories( $args ); 
+        // echo $option;
+      }
+      ?> 
+    </div>
+    <div class="news-items">
+      <?php
+        $args = array( 'posts_per_page' => 15 );
+        $posts = get_posts();
+        $longitude = '';
+        $latitude = '';
 
-        foreach ($categories as $category) {
+        foreach( $posts as $post ) {
+
+          $title = $post->post_title;
+          $image = get_field('image');
+          $text = $post->post_content;
           ?>
-          <div class="category <?php $category->category_nicename ?>">
-            <a href="#" data-category="<?php echo $category->cat_ID ?>"><?php echo $category->cat_name?></a>
+          <div class="news-item dotdotdot">
+            <?php if($image) { ?>
+              <img src="<?php echo $image ?>">
+            <?php } ?>
+            <div class="text-wrapper">
+              <h2><?php echo $title ?></h2>
+              <div class=""><?php echo $text ?></div>
+            </div>
           </div>
           <?php
-
-          // echo $option;
         }
-        ?> 
-      </div>
-      <div class="news-items">
-        <?php
-          $args = array( 'posts_per_page' => 15 );
-          $posts = get_posts();
-          $longitude = '';
-          $latitude = '';
-
-          foreach( $posts as $post ) {
-
-            $title = $post->post_title;
-            $image = get_field('image');
-            $text = $post->post_content;
-            ?>
-            <div class="news-item dotdotdot">
-              <img src="<?php echo $image ?>">
-              <div class="text-wrapper">
-                <h2><?php echo $title ?></h2>
-                <div class=""><?php echo $text ?></div>
-              </div>
-            </div>
-            <?php
-          }
-          $json = json_encode( $output );
-        ?>
-      </div>
+        $json = json_encode( $output );
+      ?>
     </div>
   </div>
 </div>
