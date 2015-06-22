@@ -24,6 +24,9 @@ var iconCriminaliteit = templateDir + "/libs/img/criminaliteit.png";
 var iconOverig = templateDir + "/libs/img/overig.png";
 var iconSport = templateDir + "/libs/img/sport.png";
 
+//global infowindow
+var infowindow = new google.maps.InfoWindow();
+
 
 function mapInit() {
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -48,8 +51,11 @@ function getAllMeldingenCallBack(data) {
         var video = item.video;
         var category = item.category;
         if(longitude != '' && latitude != ''){
+			
+			
             createMarker(id,longitude,latitude,title,text,image,video,category);
-        }
+        
+		}
     })   
 }
 
@@ -111,8 +117,8 @@ function createMarker(id,longitude,latitude,title,text,image,video,category) {
         title:      title,
     });
 
-    marker.info = new google.maps.InfoWindow({
-        content: '<h2>'+ title +'</h2>'+' <p>'+ text +'</p> <br /> '});
+    //marker.info = new google.maps.InfoWindow({
+      //  content: '<h2>'+ title +'</h2>'+' <p>'+ text +'</p> <br /> '});
 
     // switch (category){
     //     case 'Nieuws':
@@ -135,8 +141,12 @@ function createMarker(id,longitude,latitude,title,text,image,video,category) {
     // }
     
     google.maps.event.addListener(marker, 'click', function(){
+		 var contentString = '<h2>'+ title +'</h2>'+' <p>'+ text +'</p> <br /> ';
+		infowindow.setContent(contentString);
+		infowindow.open(map,marker);
+		 
         map.setCenter(marker.getPosition());
-        marker.info.open(map,marker);
+        //marker.info.open(map,marker);
     });
 }
 
