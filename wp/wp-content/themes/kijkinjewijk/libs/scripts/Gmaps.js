@@ -140,7 +140,7 @@ function createMarker(id,longitude,latitude,title,text,image,video,category) {
     //     });
     // }
     
-    google.maps.event.addListener(marker, 'click', function(){
+    google.maps.event.addListener(marker, 'mouseover', function(){
 		 var contentString = '<h2>'+ title +'</h2>'+' <p>'+ text +'</p> <br /> ';
 		infowindow.setContent(contentString);
 		infowindow.open(map,marker);
