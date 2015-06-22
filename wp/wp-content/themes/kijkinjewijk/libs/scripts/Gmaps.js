@@ -126,14 +126,15 @@ function createMarker(id,longitude,latitude,title,text,image,video,category) {
 		 var contentString = '<h2>'+ title +'</h2>  <br /> ';
 		infowindow.setContent(contentString);
 		infowindow.open(map,marker);
-		 
-        map.setCenter(marker.getPosition());
-        //marker.info.open(map,marker);
+
+        // Center to right position
+        var latlng = new google.maps.LatLng(marker.getPosition().lat() + 0.002, marker.getPosition().lng() -0.02);
+        map.panTo(latlng);
     });
 }
 
 function focusToMarker(latLngPosition){
-    map.setCenter(latLngPosition);
+    map.panTo(latLngPosition);
     map.setZoom(14);
 }
 
