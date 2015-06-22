@@ -128,7 +128,7 @@ function createMarker(id,longitude,latitude,title,text,image,video,category) {
 		infowindow.open(map,marker);
 
         // Center to right position
-        var latlng = new google.maps.LatLng(marker.getPosition().lat() + 0.002, marker.getPosition().lng() -0.02);
+        var latlng = new google.maps.LatLng(marker.getPosition().lat() + 0.002, marker.getPosition().lng() -0.01);
         map.panTo(latlng);
     });
 }
