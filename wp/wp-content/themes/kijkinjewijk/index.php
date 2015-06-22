@@ -66,8 +66,9 @@ get_header(); ?>
           $title = $post->post_title;
           $image = get_field('image');
           $text = $post->post_content;
+          $id = $post->ID;
           ?>
-          <div class="news-item dotdotdot">
+          <div class="news-item dotdotdot" data-id="<?php echo $id ?>">
             <?php if($image) { ?>
               <img src="<?php echo $image ?>">
             <?php } ?>

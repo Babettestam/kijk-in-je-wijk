@@ -12,7 +12,9 @@ var styles = [
      { "lightness": -5 },
      { "gamma": 1.25 }
      ]
- }];
+}];
+
+var markers = {};
 
 var marker;
 
@@ -111,34 +113,14 @@ function createMarker(id,longitude,latitude,title,text,image,video,category) {
     );
 
    var marker = new google.maps.Marker({
+        id: id,
         position:   latLngPosition,
         icon:       image,
         map:        map,
         title:      title,
     });
 
-    //marker.info = new google.maps.InfoWindow({
-      //  content: '<h2>'+ title +'</h2>'+' <p>'+ text +'</p> <br /> '});
-
-    // switch (category){
-    //     case 'Nieuws':
-    //         break;
-    //     case 'NieuwsVideo':
-    //         if(VideoUrl == '') {
-    //             marker.info = new google.maps.InfoWindow({
-    //                 content: '<h2>'+ title +'</h2>' + '<br />datum: '+date+'<br />Decibel: '+decibel
-    //             });
-    //         }
-    //         else{
-    //             marker.info = new google.maps.InfoWindow({
-    //             content: '<h2>'+ title +'</h2>'+' <p>'+ Text +'</p> <br /> '+ '<iframe width="560" height="315" src="'+ video +'"" frameborder="0" allowfullscreen></iframe><br /><img src="http://lumini.ovh/school/kijkinjewijk/upload/'+ image +'" alt="Nieuws plaatje"><br />'});
-    //         }
-    //         break;
-    //     default:
-    //         marker.info = new google.maps.InfoWindow({
-    //         content: '<h2>'+ title +'</h2>' + '<p>'+ video  +'</p>'
-    //     });
-    // }
+    markers[id] = marker;
     
     google.maps.event.addListener(marker, 'mouseover', function(){
 		 var contentString = '<h2>'+ title +'</h2>  <br /> ';
@@ -154,6 +136,14 @@ function focusToMarker(latLngPosition){
     map.setCenter(latLngPosition);
     map.setZoom(14);
 }
+
+function newsItemHover() {
+  $('.news-item').on('mouseover', function(){
+    var id = $(this).data('id');
+    google.maps.event.trigger(markers[id], 'mouseover');
+  })
+}
+
 
 
 
