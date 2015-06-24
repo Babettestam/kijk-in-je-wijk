@@ -43,10 +43,11 @@ get_header(); ?>
       foreach ($categories as $category) {
         ?>
         <div class="category <?php $category->category_nicename ?>">
-          <a href="#" data-category="<?php echo $category->cat_ID ?>">
+          <a href="?=<?php echo $category->cat_ID ?>" data-category="<?php echo $category->cat_ID ?>">
           <img src="<?php bloginfo('template_directory');?>/libs/img/tab_<?php echo $category->category_nicename ?>.png">
             <?php echo $category->cat_name?>
           </a>
+		 
         </div>
         <?php
 
