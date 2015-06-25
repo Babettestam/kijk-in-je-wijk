@@ -26,27 +26,21 @@
 	 if(isset($_GET['id']))
 	{
 		$GetVar = $_GET["id"];
-	
+	  
 		switch ($GetVar) {
-		case 0:
-			//echo "i equals 0";
-			  /*  if($post->post_category == "Sport") 
-			{
-				echo "dit is cultuur";
-			}
-			else
-			{
-				echo $post->post_category;
-				//echo "dit is geen cultuur";
-			}
-			break;
-		case 1:
-			echo "i equals 1";
-			break;
-		case 2:
-			echo "i equals 2";
-			break;
-		}*/
+							case 0:
+								//echo "i equals 0";
+									
+									echo "dit is cultuur";
+
+								break;
+							case 1:
+								echo "i equals 1";
+								break;
+							case 2:
+								echo "i equals 2";
+								break;
+						}//einde switch
 	} 
 	
   }//einde foreach
