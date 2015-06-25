@@ -54,13 +54,25 @@ function getAllMeldingenCallBack(data) {
         var category = item.category;
         var filter = item.filter;
 
+		console.log(filter);
+		console.log(category);
         if (category == filter) {
             
             if(longitude != '' && latitude != ''){
-                createMarker(id,longitude,latitude,title,text,image,video,category);
+				
+				createMarker(id,longitude,latitude,title,text,image,video,filter);
+				console.log("ik maak alleen de gefilterde aan");
             }
         }
-        console.log(longitude);
+		else{
+			//create alle markers
+			if(longitude != '' && latitude != ''){
+               createMarker(id,longitude,latitude,title,text,image,video,category);
+            }
+		}
+		
+        //console.log(longitude);
+		//console.log(category);
     })   
 }
 
