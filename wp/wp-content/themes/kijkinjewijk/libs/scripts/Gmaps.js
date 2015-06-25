@@ -62,9 +62,10 @@ function getAllMeldingenCallBack(data) {
 				
 				createMarker(id,longitude,latitude,title,text,image,video,filter);
 				console.log("ik maak alleen de gefilterde aan");
+				
             }
         }
-		else{
+		if(filter == '' ){
 			//create alle markers
 			if(longitude != '' && latitude != ''){
                createMarker(id,longitude,latitude,title,text,image,video,category);
