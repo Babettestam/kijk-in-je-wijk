@@ -56,19 +56,20 @@ $( document ).ready(function() {
 
       $categories = get_categories( $args ); 
 
-      foreach ($categories as $category) {
-        ?>
-        <div class="category <?php $category->category_nicename ?>"href="index.php" >
-          <a href="?id=<?php echo $category->cat_ID ?>" data-category="<?php echo $category->cat_ID ?>">
-          <img src="<?php bloginfo('template_directory');?>/libs/img/tab_<?php echo $category->category_nicename ?>.png">
-            <?php echo $category->cat_name?>
-          </a>
-		 
-        </div>
-        <?php
+      foreach ($categories as $category) 
+		{
+				?>
+				<div class="category <?php $category->category_nicename ?>"href="index.php" >
+				<a href="?id=<?php echo $category->cat_ID ?>" data-category="<?php echo $category->cat_ID ?>">
+				<img src="<?php bloginfo('template_directory');?>/libs/img/tab_<?php echo $category->category_nicename ?>.png">
+				<?php echo $category->cat_name?>
+				</a>
+											 
+				</div>
+				<?php
 
-        // echo $option;
-      }
+		
+		}
       ?> 
     </div>
     <div class="news-items">
@@ -84,8 +85,10 @@ $( document ).ready(function() {
           $image = get_field('image');
           $text = $post->post_content;
           $id = $post->ID;
+		 
+		  
           ?>
-          <div class="news-item dotdotdot" data-id="<?php echo $id ?>">
+          <div class="news-item dotdotdot data-id="<?php echo $id ?>">
             <?php if($image) { ?>
               <img src="<?php echo $image ?>">
             <?php } ?>

@@ -62,6 +62,7 @@ function getAllMeldingenCallBack(data) {
 				
 				createMarker(id,longitude,latitude,title,text,image,video,filter);
 				console.log("ik maak alleen de gefilterde aan");
+
 				
             }
         }
