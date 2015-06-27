@@ -17,6 +17,21 @@ get_header(); ?>
 
   ?>
 
+	<script>
+$( document ).ready(function() {
+   
+
+
+	$('.category a').on('click', function(){
+
+    $('a.active').removeClass('active');
+    $(this).addClass('active');
+});
+
+
+});//end onready
+
+</script>
 <div id="news-wrapper">
   <div class="news-items-wrapper">
     <div class="categories">
@@ -43,7 +58,7 @@ get_header(); ?>
 
       foreach ($categories as $category) {
         ?>
-        <div class="category <?php $category->category_nicename ?>">
+        <div class="category <?php $category->category_nicename ?>"href="index.php" >
           <a href="?id=<?php echo $category->cat_ID ?>" data-category="<?php echo $category->cat_ID ?>">
           <img src="<?php bloginfo('template_directory');?>/libs/img/tab_<?php echo $category->category_nicename ?>.png">
             <?php echo $category->cat_name?>

@@ -5,6 +5,7 @@
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/libs/fonts/fontello/css/fontello.css">
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory');?>/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body <?php body_class( $class ); ?>>
 <div id="wrapper">
