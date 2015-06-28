@@ -102,19 +102,32 @@ get_header(); ?>
             $image = get_field('gallery');
             $text = $post->post_content;
             $id = $post->ID;
-       
-        
-            ?>
-            <div class="news-item dotdotdot" data-id="<?php echo $id ?>" id="<?php echo $id ?>">
-              <?php if($image) { ?>
-                <img class="news-image" src="<?php echo $image['url'] ?>">
-              <?php } ?>
-              <div class="text-wrapper">
-                <h2><?php echo $title ?></h2>
-                <div class=""><?php echo $text ?></div>
+            if(!isset($_GET['id']) || $_GET['id'] == 0) {
+              // if($_GET['id'] == null || $_GET['id'] == "0")?>
+                <div class="news-item dotdotdot" data-id="<?php echo $id ?>" id="<?php echo $id ?>">
+                <?php if($image) { ?>
+                  <img class="news-image" src="<?php echo $image['url'] ?>">
+                <?php } ?>
+                <div class="text-wrapper">
+                  <h2><?php echo $title ?></h2>
+                  <div class=""><?php echo $text ?></div>
+                </div>
+              </div><?php
+              // }
+            }
+            if($_GET['id'] == $post->post_category[0]) {
+              ?>
+              <div class="news-item dotdotdot" data-id="<?php echo $id ?>" id="<?php echo $id ?>">
+                <?php if($image) { ?>
+                  <img class="news-image" src="<?php echo $image['url'] ?>">
+                <?php } ?>
+                <div class="text-wrapper">
+                  <h2><?php echo $title ?></h2>
+                  <div class=""><?php echo $text ?></div>
+                </div>
               </div>
-            </div>
-            <?php
+              <?php
+            }
           }
           $json = json_encode( $output );
         ?>
