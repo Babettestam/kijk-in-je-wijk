@@ -17,21 +17,10 @@ get_header(); ?>
 
   ?>
 
-	<script>
-$( document ).ready(function() {
-   
+
+<script type="text/javascript" src="myscript.js"></script>
 
 
-	$('.category a').on('click', function(){
-
-    $('a.active').removeClass('active');
-    $(this).addClass('active');
-});
-
-
-});//end onready
-
-</script>
 <div id="news-wrapper">
   <div class="news-items-wrapper">
     <div class="categories">

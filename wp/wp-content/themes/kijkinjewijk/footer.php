@@ -11,6 +11,7 @@
 
   <script type="text/javascript" src="<?php bloginfo('template_directory');?>/libs/scripts/shared.js"></script>
   <script type="text/javascript" src="<?php bloginfo('template_directory');?>/libs/scripts/main.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory');?>/libs/scripts/SmallScripts.js"></script>
 
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
   <script type="text/javascript" src="<?php bloginfo('template_directory');?>/libs/scripts/Gmaps.js"></script>
