@@ -63,6 +63,14 @@
     vertical-align: middle;
     margin-bottom: 2px;
   }
+
+  &.empty {
+    opacity: 0.3;
+    a {
+    cursor: default;
+      
+    }
+  }
 }
 
 // 

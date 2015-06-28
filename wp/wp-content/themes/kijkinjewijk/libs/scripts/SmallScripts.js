@@ -1,12 +1,13 @@
 
    
-function load_Active() {
+function load_Active(category) {
 
-	$('.category a').on('click', function(){
+	// $('.category a').on('click', function(){
+ //    $('a.active').removeClass('active');
+ //    $(this).addClass('active');
+ //  });
 
-    $('a.active').removeClass('active');
-    $(this).addClass('active');
-});
+
 }
 
 

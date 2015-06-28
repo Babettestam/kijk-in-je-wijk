@@ -5,15 +5,23 @@
   $latitude = '';
 
   $output = array();
-  		$GetVar = '';
+  		// $GetVar = '';
   foreach( $posts as $post ) {
 
     $longitude = get_field('locatie', $post->ID)[lng];
     $latitude = get_field('locatie', $post->ID)[lat];
-    $text = mysql_real_escape_string($post->post_content);
+    // $title = mysqli_real_escape_string($post->post_title);
+    // $text = mysqli_real_escape_string($post->post_content);
+    $title = addslashes($post->post_title);
+    $text = mysqli_real_escape_string($post->post_content);
 
     if(isset($_GET['id'])) {
-      $GetVar = $_GET["id"];
+      if(isset($_GET["id"])) {
+        $GetVar = $_GET["id"];
+      }
+      else {
+        $GetVar = "";
+      }
       
       // switch ($GetVar) {
       //           case 0:
@@ -33,7 +41,7 @@
 
     $output[] = array( 
       'id' => $post->ID, 
-      'title' => $post->post_title,
+      'title' => $title,
       'longitude' => $longitude,
       'latitude' => $latitude,
       'text' => $text,

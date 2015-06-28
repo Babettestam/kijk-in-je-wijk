@@ -54,27 +54,23 @@ function getAllMeldingenCallBack(data) {
         var category = item.category;
         var filter = item.filter;
 
-		console.log(filter);
-		console.log(category);
+		console.log("Filter " + filter);
+		console.log("Category " + category);
         if (category == filter) {
-            
-            if(longitude != '' && latitude != ''){
-				
-				createMarker(id,longitude,latitude,title,text,image,video,filter);
-				console.log("ik maak alleen de gefilterde aan");
+            $('#'+filter).addClass('active');
 
-				
+            if(longitude != '' && latitude != ''){
+                createMarker(id,longitude,latitude,title,text,image,video,category);
             }
         }
-		if(filter == '' ){
-			//create alle markers
-			if(longitude != '' && latitude != ''){
+        if(filter == null || filter == "0"){
+            $('#0').addClass('active');
+            //create alle markers
+            if(longitude != '' && latitude != ''){
                createMarker(id,longitude,latitude,title,text,image,video,category);
             }
 		}
 		
-        //console.log(longitude);
-		//console.log(category);
     })   
 }
 
@@ -100,7 +96,7 @@ function createPlace(data) {
 
 function createMarker(id,longitude,latitude,title,text,image,video,category) {
     var latLngPosition = new google.maps.LatLng(latitude,longitude);
-
+    console.log(category[0]);
     switch (category[0]) {
         case 1: // Geen categorie
             iconUrl = iconOverig;
@@ -109,6 +105,7 @@ function createMarker(id,longitude,latitude,title,text,image,video,category) {
             iconUrl = iconCultuur;
             break;
         case 3: // Sport
+            console.log("sport");
             iconUrl = iconSport;
             break;
         case 4: // Bouw

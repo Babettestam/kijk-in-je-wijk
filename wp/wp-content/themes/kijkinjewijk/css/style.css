@@ -226,6 +226,10 @@ h3 {
     opacity: 0.5;
     vertical-align: middle;
     margin-bottom: 2px; }
+  .category.empty {
+    opacity: 0.3; }
+    .category.empty a {
+      cursor: default; }
 
 .news-item {
   height: 130px; }

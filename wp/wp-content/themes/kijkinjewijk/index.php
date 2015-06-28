@@ -14,18 +14,16 @@ get_header(); ?>
 
 <?php 
   include "getNews.php";
+?>
 
-  ?>
-
-
-<script type="text/javascript" src="myscript.js"></script>
+<!-- <script type="text/javascript" src="myscript.js"></script> -->
 
 
 <div id="news-wrapper">
   <div class="news-items-wrapper">
     <div class="categories">
       <div class="category <?php $category->category_nicename ?>">
-      <a href="#" class="active">Headlines</a>
+        <a href="?id=0" id="0">Headlines</a>
       </div>
       <?php
       $args = array(
@@ -46,19 +44,20 @@ get_header(); ?>
       $categories = get_categories( $args ); 
 
       foreach ($categories as $category) 
-		{
+      {
+        $empty = "";
+        if ($category->category_count == 0) {
+          $empty = "empty";
+        }
 				?>
-				<div class="category <?php $category->category_nicename ?>"href="index.php" >
-				<a href="?id=<?php echo $category->cat_ID ?>" data-category="<?php echo $category->cat_ID ?>">
-				<img src="<?php bloginfo('template_directory');?>/libs/img/tab_<?php echo $category->category_nicename ?>.png">
-				<?php echo $category->cat_name?>
-				</a>
-											 
+				<div class="category <?php echo $category->category_nicename; echo " ".$empty ?>" >
+  				<a id="<?php echo $category->cat_ID ?>" href="?id=<?php echo $category->cat_ID ?>" data-category="<?php echo $category->cat_ID ?>">
+  				<img src="<?php bloginfo('template_directory');?>/libs/img/tab_<?php echo $category->category_nicename ?>.png">
+  				<?php echo $category->cat_name?>
+  				</a>
 				</div>
 				<?php
-
-		
-		}
+  		}
       ?> 
     </div>
     <div class="news-items">
