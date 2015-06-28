@@ -54,8 +54,6 @@ function getAllMeldingenCallBack(data) {
         var category = item.category;
         var filter = item.filter;
 
-		console.log("Filter " + filter);
-		console.log("Category " + category);
         if (category == filter) {
             $('#'+filter).addClass('active');
 
@@ -94,9 +92,8 @@ function createPlace(data) {
     focusToMarker(latLngPosition);
 }
 
-function createMarker(id,longitude,latitude,title,text,image,video,category) {
+function createMarker(id,longitude,latitude,title,text,imageurl,video,category) {
     var latLngPosition = new google.maps.LatLng(latitude,longitude);
-    console.log(category[0]);
     switch (category[0]) {
         case 1: // Geen categorie
             iconUrl = iconOverig;
@@ -105,7 +102,6 @@ function createMarker(id,longitude,latitude,title,text,image,video,category) {
             iconUrl = iconCultuur;
             break;
         case 3: // Sport
-            console.log("sport");
             iconUrl = iconSport;
             break;
         case 4: // Bouw
@@ -137,13 +133,17 @@ function createMarker(id,longitude,latitude,title,text,image,video,category) {
     markers[id] = marker;
     
     google.maps.event.addListener(marker, 'mouseover', function(){
-		 
-		 var HardcodedImg = "<img src="+templateDir + "/libs/img/hardcoded/"+id+".jpg></img>";
-		 var contentString = '<h2>'+ title +'</h2>' + HardcodedImg +'  <br /> ';
+		 var HardcodedImg = "<img src='"+ imageurl['url'] + "'></img>";
+		 var contentString = '<div class="gmap-window"><h2>'+ title +'</h2>' + HardcodedImg +'</div>';
 		 
 		infowindow.setContent(contentString);
 		infowindow.open(map,marker);
 
+    });
+
+    google.maps.event.addListener(marker, 'click', function(){
+        var id = marker.id;
+        window.location.href = "?item=" + id;
     });
 }
 

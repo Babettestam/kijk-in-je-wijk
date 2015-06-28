@@ -78,6 +78,10 @@ get_header(); ?>
         ?>
         <div class="news-item-detail">
           <img src="<?php echo $image['url'] ?>">
+          <h2><?php echo $title; ?></h2>
+          <div>
+           <?php echo wpautop($text); ?>
+          </div>
         </div>
         <?php
       }

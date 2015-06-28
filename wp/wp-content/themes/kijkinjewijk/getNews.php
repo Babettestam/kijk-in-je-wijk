@@ -45,7 +45,7 @@
       'longitude' => $longitude,
       'latitude' => $latitude,
       'text' => $text,
-      'image' => 'null',
+      'image' => get_field('gallery', $post->ID),
       'video' => 'null',
       'category' => $post->post_category,
       'filter' => $GetVar

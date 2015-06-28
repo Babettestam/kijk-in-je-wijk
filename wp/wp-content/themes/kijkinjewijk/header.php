@@ -12,7 +12,7 @@
 <div id="wrapper">
 <div id="top">
     <div class="container">
-        <a href="./OPEN Rotterdam_files/OPEN Rotterdam.html" class="logo">
+        <a href="index.php" class="logo">
         </a>
 
 <ul class="navigatie">

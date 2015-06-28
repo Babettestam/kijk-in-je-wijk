@@ -118,5 +118,37 @@
 }
 
 
+// 
+// Gmaps
+// 
+  
+
+.gmap-window {
+    position: relative;
+  
+  h2 {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    color: #fff;
+    z-index: 2;
+    font-size: 20px;
+  }
+
+  img {
+    max-width: 350px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 120px;
+    left: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 90%) ;
+  }
+}  
 
 
