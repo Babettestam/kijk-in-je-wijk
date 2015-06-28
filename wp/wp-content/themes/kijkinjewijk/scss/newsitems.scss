@@ -26,9 +26,10 @@
   width: 450px;
   height: 100%;
   margin-left: 90px;
-  background: #eeeeee;
+  background: #fff;
   pointer-events: all; 
   padding: 10px;
+  padding-top: 0;
   overflow: auto;
 }
 
@@ -39,7 +40,12 @@
 .categories {
   width: 100%;
   font-size: 0;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: #eee 1px solid;
+  position: fixed;
+  background: #fff;
+  padding-top: 10px;
+  width: 430px;
 }
 
 .category {
@@ -83,8 +89,8 @@
   .text-wrapper {
     padding: 10px;
   }  
-  &:nth-child(odd) {
-    background: #fff;
+  &:nth-child(even) {
+    background: #eee;
   }
 }
 
@@ -92,8 +98,23 @@
 // News item detail
 // 
 
+.news-items {
+  padding-top: 40px;
+}
+
+.news-image {
+  padding-top: 15px;
+  max-height: 120px;
+  float: left;
+  padding-right: 10px;
+}
+
 .news-item-detail {
+  padding-top: 40px;
   
+  img {
+    max-width: 100%;
+  }
 }
 
 

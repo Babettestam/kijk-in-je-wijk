@@ -64,14 +64,20 @@ get_header(); ?>
     if (isset($_GET['item']) ) {
       if($_GET['item'] != null) {
 
+        $post = get_post($_GET['item']);
+
+        $image = get_field('gallery', $_GET['item']);
+        $title = $post->post_title;
+        $text = $post->post_content;
+        $id = $post->ID;
+
         // 
         // Detail newsitem
         // 
+
         ?>
         <div class="news-item-detail">
-          <div>
-          
-          </div>
+          <img src="<?php echo $image['url'] ?>">
         </div>
         <?php
       }
@@ -86,14 +92,14 @@ get_header(); ?>
       <div class="news-items">
         <?php
           $args = array( 'posts_per_page' => 15 );
-          $posts = get_posts();
+          $posts = get_posts($args);
           $longitude = '';
           $latitude = '';
 
           foreach( $posts as $post ) {
 
             $title = $post->post_title;
-            $image = get_field('image');
+            $image = get_field('gallery');
             $text = $post->post_content;
             $id = $post->ID;
        
@@ -101,7 +107,7 @@ get_header(); ?>
             ?>
             <div class="news-item dotdotdot" data-id="<?php echo $id ?>" id="<?php echo $id ?>">
               <?php if($image) { ?>
-                <img src="<?php echo $image ?>">
+                <img class="news-image" src="<?php echo $image['url'] ?>">
               <?php } ?>
               <div class="text-wrapper">
                 <h2><?php echo $title ?></h2>
