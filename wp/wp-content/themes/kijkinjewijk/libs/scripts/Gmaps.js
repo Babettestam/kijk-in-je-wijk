@@ -140,7 +140,10 @@ function createMarker(id,longitude,latitude,title,text,image,video,category) {
     markers[id] = marker;
     
     google.maps.event.addListener(marker, 'mouseover', function(){
-		 var contentString = '<h2>'+ title +'</h2>  <br /> ';
+		 
+		 var HardcodedImg = "<img src="+templateDir + "/libs/img/hardcoded/"+id+".jpg></img>";
+		 var contentString = '<h2>'+ title +'</h2>' + HardcodedImg +'  <br /> ';
+		 
 		infowindow.setContent(contentString);
 		infowindow.open(map,marker);
 
