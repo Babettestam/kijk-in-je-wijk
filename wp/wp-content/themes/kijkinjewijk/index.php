@@ -60,36 +60,63 @@ get_header(); ?>
   		}
       ?> 
     </div>
-    <div class="news-items">
-      <?php
-        $args = array( 'posts_per_page' => 15 );
-        $posts = get_posts();
-        $longitude = '';
-        $latitude = '';
+    <?php
+    if (isset($_GET['item']) ) {
+      if($_GET['item'] != null) {
 
-        foreach( $posts as $post ) {
-
-          $title = $post->post_title;
-          $image = get_field('image');
-          $text = $post->post_content;
-          $id = $post->ID;
-		 
-		  
-          ?>
-          <div class="news-item dotdotdot data-id="<?php echo $id ?>">
-            <?php if($image) { ?>
-              <img src="<?php echo $image ?>">
-            <?php } ?>
-            <div class="text-wrapper">
-              <h2><?php echo $title ?></h2>
-              <div class=""><?php echo $text ?></div>
-            </div>
+        // 
+        // Detail newsitem
+        // 
+        ?>
+        <div class="news-item-detail">
+          <div>
+          
           </div>
-          <?php
-        }
-        $json = json_encode( $output );
+        </div>
+        <?php
+      }
+    }
+    else {
+
+      // 
+      // all news items || or with category
+      // 
+
       ?>
-    </div>
+      <div class="news-items">
+        <?php
+          $args = array( 'posts_per_page' => 15 );
+          $posts = get_posts();
+          $longitude = '';
+          $latitude = '';
+
+          foreach( $posts as $post ) {
+
+            $title = $post->post_title;
+            $image = get_field('image');
+            $text = $post->post_content;
+            $id = $post->ID;
+       
+        
+            ?>
+            <div class="news-item dotdotdot" data-id="<?php echo $id ?>" id="<?php echo $id ?>">
+              <?php if($image) { ?>
+                <img src="<?php echo $image ?>">
+              <?php } ?>
+              <div class="text-wrapper">
+                <h2><?php echo $title ?></h2>
+                <div class=""><?php echo $text ?></div>
+              </div>
+            </div>
+            <?php
+          }
+          $json = json_encode( $output );
+        ?>
+      </div>
+      <?php
+    }
+    ?>
+    
   </div>
 </div>
 

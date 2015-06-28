@@ -9,9 +9,19 @@
     $('.empty').on('click', function() {
       event.preventDefault();
     })
+
+    $('.news-item').on('click', function() {
+      openNewsItem(this);
+    });
   });
 
   $( window ).resize( function() {
   });
+
+  function openNewsItem(item) {
+    var id = $(item).attr('id');
+    // console.log(id);
+    window.location.href = "?item=" + id;
+  }
 
 })(jQuery);
