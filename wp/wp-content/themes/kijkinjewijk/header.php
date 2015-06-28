@@ -5,6 +5,7 @@
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/libs/fonts/fontello/css/fontello.css">
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory');?>/css/style.css">
+   <script type="text/javascript" src="<?php bloginfo('template_directory');?>/libs/scripts/vendor/jquery-1.11.2.min.js"></script>
 
 </head>
 <body <?php body_class( $class ); ?>>
