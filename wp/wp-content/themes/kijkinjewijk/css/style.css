@@ -184,9 +184,8 @@ h3 {
   pointer-events: none; }
 
 .content-area {
-  width: 100%;
   position: absolute;
-  left: 0;
+  left: 450px;
   bottom: 0;
   right: 0; }
 
@@ -200,7 +199,7 @@ h3 {
 .news-items-wrapper {
   width: 450px;
   height: 100%;
-  margin-left: 90px;
+  margin-left: 0;
   background: #fff;
   pointer-events: all;
   padding: 10px;
