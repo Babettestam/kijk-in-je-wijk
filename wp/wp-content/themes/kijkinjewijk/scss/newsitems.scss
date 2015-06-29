@@ -114,6 +114,16 @@
   img {
     max-width: 100%;
   }
+
+  h2 {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+}
+
+.buttons-wrapper {
+  width: 100%;
+  @include clearfix;
 }
 
 
@@ -149,5 +159,7 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 90%) ;
   }
 }  
+
+
 
 

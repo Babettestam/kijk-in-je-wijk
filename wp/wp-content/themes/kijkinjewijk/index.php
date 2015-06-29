@@ -82,6 +82,14 @@ get_header(); ?>
           <div>
            <?php echo wpautop($text); ?>
           </div>
+          <div class="buttons-wrapper">
+            <a class="button">
+              Vul dit stuk aan
+            </a>
+            <a class="button">
+              Deel dit verhaal
+            </a>
+          </div>
         </div>
         <?php
       }
