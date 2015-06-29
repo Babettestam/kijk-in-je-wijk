@@ -1,7 +1,7 @@
 //global vars
 var map;
 var mapOptions = {
-    zoom:8,
+    zoom:18,
     minZoom:3,
     center:new google.maps.LatLng(51.83313, 4.14330),
     mapTypeId:google.maps.MapTypeId.TERRAIN
@@ -154,6 +154,7 @@ function focusToMarker(latLngPosition){
 
 function newsItemHover() {
   $('.news-item').on('mouseover', function(){
+    
     var id = $(this).data('id');
     google.maps.event.trigger(markers[id], 'mouseover');
   })

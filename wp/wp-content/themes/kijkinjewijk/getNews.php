@@ -1,6 +1,6 @@
 <?php
-  $args = array( 'posts_per_page' => 15 );
-  $posts = get_posts();
+  $args = array( 'posts_per_page' => 25 );
+  $posts = get_posts($args);
   $longitude = '';
   $latitude = '';
 

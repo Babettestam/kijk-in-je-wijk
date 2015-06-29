@@ -199,7 +199,7 @@ h3 {
 
 .content-area {
   position: absolute;
-  left: 450px;
+  left: 480px;
   bottom: 0;
   right: 0; }
 
@@ -211,7 +211,7 @@ h3 {
     top: 82px; }
 
 .news-items-wrapper {
-  width: 450px;
+  width: 480px;
   height: 100%;
   margin-left: 0;
   background: #fff;
@@ -228,7 +228,7 @@ h3 {
   position: fixed;
   background: #fff;
   padding-top: 10px;
-  width: 430px; }
+  width: 460px; }
 
 .category {
   display: inline-block;
@@ -253,9 +253,15 @@ h3 {
 .news-item {
   height: 130px; }
   .news-item .text-wrapper {
+    overflow: hidden;
+    max-height: 93%;
     padding: 10px; }
   .news-item:nth-child(even) {
     background: #eee; }
+  .news-item .image-wrapper {
+    width: 145px;
+    overflow: hidden;
+    float: left; }
 
 .news-items {
   padding-top: 40px; }
@@ -264,7 +270,8 @@ h3 {
   padding-top: 15px;
   max-height: 120px;
   float: left;
-  padding-right: 10px; }
+  padding-right: 10px;
+  margin-left: 7px; }
 
 .news-item-detail {
   padding-top: 40px; }
@@ -273,6 +280,8 @@ h3 {
   .news-item-detail h2 {
     font-size: 18px;
     margin-top: 20px; }
+  .news-item-detail > div {
+    margin-bottom: 20px; }
 
 .buttons-wrapper {
   width: 100%;

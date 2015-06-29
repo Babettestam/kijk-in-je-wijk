@@ -7,7 +7,7 @@
 
 .content-area {
   position: absolute;
-  left: 450px;
+  left: 480px;
   bottom: 0;
   right: 0;
 }
@@ -22,7 +22,7 @@
 }
 
 .news-items-wrapper {
-  width: 450px;
+  width: 480px;
   height: 100%;
   margin-left: 0;
   background: #fff;
@@ -44,7 +44,7 @@
   position: fixed;
   background: #fff;
   padding-top: 10px;
-  width: 430px;
+  width: 460px;
 }
 
 .category {
@@ -86,10 +86,17 @@
   height: 130px;
 
   .text-wrapper {
+    overflow: hidden;
+    max-height: 93%;
     padding: 10px;
   }  
   &:nth-child(even) {
     background: #eee;
+  }
+  .image-wrapper {
+    width: 145px;
+    overflow: hidden;
+    float: left;
   }
 }
 
@@ -106,6 +113,7 @@
   max-height: 120px;
   float: left;
   padding-right: 10px;
+  margin-left: 7px;
 }
 
 .news-item-detail {
@@ -118,6 +126,9 @@
   h2 {
     font-size: 18px;
     margin-top: 20px;
+  }
+  >div {
+    margin-bottom: 20px;
   }
 }
 

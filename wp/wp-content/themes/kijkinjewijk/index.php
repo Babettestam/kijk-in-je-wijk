@@ -118,9 +118,9 @@ get_header(); ?>
               // if($_GET['id'] == null || $_GET['id'] == "0")?>
                 <div class="news-item dotdotdot" data-id="<?php echo $id ?>" id="<?php echo $id ?>">
                 <?php if($image) { ?>
-                  <img class="news-image" src="<?php echo $image['url'] ?>">
+                  <div class="image-wrapper"><img class="news-image" src="<?php echo $image['url'] ?>"></div>
                 <?php } ?>
-                <div class="text-wrapper">
+                <div class="text-wrapper dotdotdot">
                   <h2><?php echo $title ?></h2>
                   <div class=""><?php echo $text ?></div>
                 </div>
@@ -131,9 +131,9 @@ get_header(); ?>
               ?>
               <div class="news-item dotdotdot" data-id="<?php echo $id ?>" id="<?php echo $id ?>">
                 <?php if($image) { ?>
-                  <img class="news-image" src="<?php echo $image['url'] ?>">
+                  <div class="image-wrapper"><img class="news-image" src="<?php echo $image['url'] ?>"></div>
                 <?php } ?>
-                <div class="text-wrapper">
+                <div class="text-wrapper dotdotdot">
                   <h2><?php echo $title ?></h2>
                   <div class=""><?php echo $text ?></div>
                 </div>
